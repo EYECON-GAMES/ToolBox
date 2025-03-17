@@ -1,0 +1,44 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="TOOL BOX"
+run/main_scene="uid://l8guh7jv5lhg"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/bg_color=Color(0.0356214, 0.080126, 0.0588509, 1)
+config/icon="uid://byoq2iak4vi8g"
+boot_splash/show_image=false
+
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=720
+window/size/mode=4
+window/handheld/orientation=6
+
+[global]
+
+primary_color=Color(0.0356214, 0.080126, 0.0588509, 1)
+
+[gui]
+
+theme/custom="uid://c4jj41u0wfbxp"
+theme/custom_font="uid://dyfebvnjpcemg"
+
+[input_devices]
+
+pointing/android/enable_long_press_as_right_click=true
+pointing/android/enable_pan_and_scale_gestures=true
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

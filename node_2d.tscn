@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1it3u67urth1"]
+
+[ext_resource type="Script" uid="uid://buuhyldmgi2sl" path="res://node_2d.gd" id="1_wtcfe"]
+
+[sub_resource type="Curve" id="Curve_wtcfe"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.29304), -4.04063, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_wtcfe"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0e48y"]
+gradient = SubResource("Gradient_wtcfe")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_wtcfe")
+c = SubResource("Curve_wtcfe")
+
+[node name="Lines" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(190, 150)
+rotation = -0.366519
+scale = Vector2(1, 2)
+texture = SubResource("GradientTexture2D_0e48y")

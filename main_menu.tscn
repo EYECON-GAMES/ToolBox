@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://l8guh7jv5lhg"]
+
+[ext_resource type="Script" uid="uid://bj8o6aaw1ae6j" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="PackedScene" uid="uid://dmxbxhl53sy68" path="res://intro_scene.tscn" id="2_7vrkn"]
+
+[sub_resource type="Shader" id="Shader_06t4h"]
+code = "shader_type canvas_item;
+
+
+void fragment() {
+	vec2 res=1.0/SCREEN_PIXEL_SIZE;
+	vec2 uv = UV;
+	vec2 cuv=uv*2.0-1.0;
+	cuv.x*=res.x/res.y;
+	uv.x*=res.x/res.y;
+	COLOR.rgb=1.0-sqrt(1.0-vec3(max(0.5+sin(length(uv-TIME)),fract(length(cuv+TIME))),0.8,0.8))*5.0;
+	COLOR.bg=vec2(length(UV.x*UV.y/COLOR.r));
+}
+
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7vrkn"]
+shader = SubResource("Shader_06t4h")
+
+[node name="MainMenu" type="ColorRect" node_paths=PackedStringArray("scene_list")]
+material = SubResource("ShaderMaterial_7vrkn")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0356214, 0.080126, 0.0588509, 1)
+script = ExtResource("1_06t4h")
+scene_list = NodePath("Margin/grid")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 192
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="grid" type="GridContainer" parent="Margin"]
+layout_mode = 2
+
+[node name="IntroScene" parent="." instance=ExtResource("2_7vrkn")]
+layout_mode = 1
